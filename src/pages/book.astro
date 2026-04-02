@@ -1,46 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
 ---
 
 <BaseLayout
   title="Book Your Experience"
-  description="Book your seat on the OutMore Adventures full-day Yosemite experience. $210 per person. Small groups, deep knowledge, unforgettable connections."
+  description="Book your seat on the OutMore Adventures full-day Yosemite experience. NPS-authorized operator. $210 per person. Small groups, expert guide, park entry included."
 >
   <Hero
-    headline="Book Your Experience"
-    subheadline="Secure your seat on the next OutMore Adventures interpretive experience in Yosemite National Park."
+    headline="Book Your Yosemite Experience"
+    subheadline="NPS-authorized. Expert-guided. Limited to 15 guests."
     fullHeight={false}
     backgroundImage="/images/gallery/deer-half-dome.jpg"
+    badge="NPS-Authorized Operator"
   />
 
-  <!-- Booking Section -->
-  <section class="py-20 sm:py-24 bg-valley-cream">
+  <!-- Booking Widget Section -->
+  <section class="py-16 sm:py-20 bg-valley-cream">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Trust Bar -->
-      <div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-granite-mid">
-        <span class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-          NPS-Authorized Operator
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          Max 15 Guests
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
-          </svg>
-          Park Entry Included
-        </span>
-      </div>
-
-      <!-- FlyBook Integration Area -->
-      <div class="bg-white rounded-2xl shadow-sm p-8 sm:p-12 text-center mb-12">
+      <div class="bg-white rounded-2xl shadow-sm p-8 sm:p-12 text-center">
         <h2 class="mb-4">Select Your Date</h2>
         <p class="text-granite-mid text-lg mb-8 max-w-xl mx-auto">
           Choose your preferred date and pickup location to reserve your spot.
@@ -54,7 +33,6 @@ import Hero from '../components/sections/Hero.astro';
           <p class="text-granite-mid font-semibold mb-2">FlyBook Booking Widget</p>
           <p class="text-granite-mid text-sm mb-6">Your FlyBook booking calendar and reservation system will be embedded here.</p>
           <!-- Replace this div with your FlyBook embed code -->
-          <!-- Example: <iframe src="https://your-flybook-url.com/embed" ...></iframe> -->
           <a
             href="#"
             class="inline-flex items-center px-8 py-4 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors"
@@ -67,16 +45,39 @@ import Hero from '../components/sections/Hero.astro';
           You'll be taken to our secure booking platform to complete your reservation.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Pricing Summary -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-          <h3 class="text-granite-dark mb-4">Full-Day Experience</h3>
-          <div class="flex items-baseline gap-2 mb-4">
-            <span class="text-4xl font-heading font-bold text-granite-dark">$210</span>
-            <span class="text-granite-mid">per person</span>
+  <!-- Three Service Pathways -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Three Ways to Experience Yosemite</span>
+        <h2>Choose Your Experience</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Tile 1: Book Your Seat -->
+        <div class="relative bg-valley-cream rounded-2xl p-8 border-2 border-sequoia/20 hover:border-sequoia/50 transition-colors group">
+          <div class="absolute -top-3 left-8">
+            <span class="inline-block bg-sequoia text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</span>
           </div>
-          <ul class="space-y-3 text-granite-mid text-sm">
+          <div class="w-14 h-14 rounded-xl bg-sequoia/10 flex items-center justify-center mb-6 mt-2">
+            <svg class="w-7 h-7 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <h3 class="text-granite-dark mb-2">Book Your Seat</h3>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-3xl font-heading font-bold text-granite-dark">$210</span>
+            <span class="text-granite-mid text-sm">per person</span>
+          </div>
+          <p class="text-granite-mid text-sm leading-relaxed mb-6">
+            Join our full-day interpretive experience. Transportation, park entry, and expert guide included.
+            Max 15 guests per departure.
+          </p>
+          <ul class="space-y-2.5 mb-8 text-sm text-granite-mid">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -99,112 +100,163 @@ import Hero from '../components/sections/Hero.astro';
               <svg class="w-4 h-4 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
-              Expert certified guide
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              Small group (max 15)
+              NPS-authorized certified guide
             </li>
           </ul>
-          <div class="mt-6 pt-4 border-t border-granite-light">
-            <p class="text-granite-mid text-sm">
-              <span class="font-semibold text-granite-dark">International visitors:</span> An additional $80 per person applies for non-U.S. residents.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-          <h3 class="text-granite-dark mb-4">Gift an Experience</h3>
-          <p class="text-granite-mid leading-relaxed mb-6">
-            Give someone the gift of seeing Yosemite differently. Gift certificates are available through
-            our booking platform and make unforgettable presents for any occasion.
-          </p>
-          <a
-            href="#"
-            class="inline-flex items-center px-6 py-3 bg-sequoia text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-sequoia/90 transition-colors"
-          >
-            Purchase Gift Certificate
+          <a href="#" class="block w-full text-center px-6 py-3.5 bg-sequoia text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded-lg hover:bg-sequoia/90 transition-colors">
+            Book Now
           </a>
+          <p class="text-granite-mid/60 text-xs text-center mt-3">
+            International visitors: +$80/person
+          </p>
         </div>
-      </div>
 
-      <!-- Private & Custom Outings -->
-      <div class="bg-granite-dark rounded-2xl p-8 sm:p-12 mb-12 relative overflow-hidden">
-        <!-- Subtle background texture -->
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #F5F1EB 1px, transparent 1px); background-size: 60px 60px;"></div>
-        <div class="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <div class="flex-1">
-            <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-golden-grass mb-4">Private & Custom Experiences</span>
-            <h2 class="text-white mb-4">Make It Your Own</h2>
-            <p class="text-valley-cream/80 text-lg leading-relaxed mb-4">
-              Planning a family reunion, corporate retreat, or special celebration? We offer private outings tailored to your group's interests, schedule, and pace.
+        <!-- Tile 2: Private & Custom -->
+        <div class="bg-valley-cream rounded-2xl p-8 border-2 border-transparent hover:border-alpenglow/30 transition-colors group">
+          <div class="w-14 h-14 rounded-xl bg-alpenglow/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-alpenglow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-granite-dark mb-2">Private & Custom Experiences</h3>
+          <p class="text-alpenglow text-sm font-semibold mb-4">Custom Pricing</p>
+          <p class="text-granite-mid text-sm leading-relaxed mb-6">
+            Exclusive use of the van for your group. Perfect for family reunions, corporate retreats,
+            and special celebrations. We build the day around you.
+          </p>
+          <ul class="space-y-2.5 mb-8 text-sm text-granite-mid">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-alpenglow mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Exclusive van for your group
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-alpenglow mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Custom itinerary for your interests
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-alpenglow mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Flexible scheduling
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-alpenglow mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Families, teams, celebrations
+            </li>
+          </ul>
+          <a href="/contact/" class="block w-full text-center px-6 py-3.5 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded-lg hover:bg-alpenglow/90 transition-colors">
+            Inquire About Private Outings
+          </a>
+          <p class="text-granite-mid/60 text-xs text-center mt-3">
+            We respond within 24 hours
+          </p>
+        </div>
+
+        <!-- Tile 3: Authorized Operator — B2B -->
+        <div class="relative bg-granite-dark rounded-2xl p-8 text-white overflow-hidden group">
+          <!-- Subtle texture -->
+          <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #F5F1EB 1px, transparent 1px); background-size: 40px 40px;"></div>
+          <div class="relative">
+            <div class="absolute -top-1 right-0">
+              <span class="inline-block bg-golden-grass text-granite-dark text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">New 2026</span>
+            </div>
+            <div class="w-14 h-14 rounded-xl bg-golden-grass/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-golden-grass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-white mb-2">Authorized Yosemite Operator</h3>
+            <p class="text-golden-grass text-sm font-semibold mb-4">For Tour Companies & Travel Agents</p>
+            <p class="text-valley-cream/80 text-sm leading-relaxed mb-6">
+              Need an NPS-authorized operator for your Yosemite groups? New CUA regulations mean
+              only authorized operators can bring commercial groups into the park. We hold that authorization.
             </p>
-            <ul class="space-y-3 mb-8 lg:mb-0">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <ul class="space-y-2.5 mb-8 text-sm text-valley-cream/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-valley-cream/80">Exclusive use of the van for your group</span>
+                NPS Commercial Use Authorization
               </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-valley-cream/80">Custom itinerary based on your interests</span>
+                Turnkey van + guide + park entry
               </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-valley-cream/80">Flexible scheduling — choose your date</span>
+                White-label flexibility
               </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-golden-grass mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-valley-cream/80">Perfect for families, teams, and special occasions</span>
+                20+ years of Yosemite expertise
               </li>
             </ul>
-          </div>
-          <div class="shrink-0 text-center">
-            <a
-              href="/contact/"
-              class="inline-flex items-center px-8 py-4 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors shadow-lg"
-            >
-              Inquire About Private Outings
-            </a>
-            <p class="text-valley-cream/50 text-sm mt-3">We'll get back to you within 24 hours</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tour Operator & Travel Agent Partnerships -->
-      <div class="bg-merced/10 border border-merced/30 rounded-2xl p-8 sm:p-12 mb-12">
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <div class="flex-1">
-            <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-merced mb-4">For Tour Operators & Travel Agents</span>
-            <h2 class="mb-4">Need an Authorized Yosemite Operator?</h2>
-            <p class="text-granite-mid text-lg leading-relaxed mb-6">
-              If you're a tour company, travel agent, or group organizer looking for an NPS-authorized operator
-              to deliver Yosemite experiences for your clients, we'd love to partner with you.
-            </p>
-            <a href="/partners/" class="inline-flex items-center px-8 py-4 bg-merced text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-merced/90 transition-colors">
+            <a href="/partners/" class="block w-full text-center px-6 py-3.5 bg-golden-grass text-granite-dark font-body text-sm font-semibold uppercase tracking-[0.08em] rounded-lg hover:bg-golden-grass/90 transition-colors">
               Learn About Partnerships
             </a>
+            <p class="text-valley-cream/40 text-xs text-center mt-3">
+              CUA-compliant operator for your groups
+            </p>
           </div>
         </div>
-      </div>
 
-      <!-- Questions -->
-      <div class="text-center bg-white rounded-xl p-8 shadow-sm">
-        <h3 class="text-granite-dark mb-4">Have Questions?</h3>
-        <p class="text-granite-mid mb-6">
-          Check our <a href="/plan-your-visit/" class="text-sequoia underline hover:text-sequoia/80">Plan Your Visit</a> page
-          for detailed information, or <a href="/contact/" class="text-sequoia underline hover:text-sequoia/80">contact us</a> directly.
-        </p>
       </div>
     </div>
   </section>
+
+  <!-- Gift Certificate -->
+  <section class="py-16 sm:py-20 bg-valley-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-sm flex flex-col md:flex-row items-center gap-8">
+        <div class="w-20 h-20 rounded-2xl bg-alpenglow/10 flex items-center justify-center shrink-0">
+          <svg class="w-10 h-10 text-alpenglow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          </svg>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h3 class="text-granite-dark mb-2">Gift an Experience</h3>
+          <p class="text-granite-mid leading-relaxed">
+            Give the gift of seeing Yosemite differently. Gift certificates are available through
+            our booking platform — unforgettable for any occasion.
+          </p>
+        </div>
+        <a
+          href="#"
+          class="inline-flex items-center px-6 py-3 bg-sequoia text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-sequoia/90 transition-colors shrink-0"
+        >
+          Purchase Gift Certificate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-granite-mid">
+        Have questions? Check our <a href="/plan-your-visit/" class="text-sequoia underline hover:text-sequoia/80 font-semibold">Plan Your Visit</a> page
+        or <a href="/contact/" class="text-sequoia underline hover:text-sequoia/80 font-semibold">contact us</a> directly.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    headline="Limited Seats. Unforgettable Days."
+    subtext="OutMore Adventures is one of a select few NPS-authorized operators in Yosemite. Secure your seat before they're gone."
+    ctaText="Book Your Experience"
+    ctaHref="#"
+    variant="sequoia"
+  />
 </BaseLayout>
