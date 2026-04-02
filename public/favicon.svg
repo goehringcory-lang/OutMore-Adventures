@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#3D5A3E"/>
+  <!-- Mountain M from OutMore logo -->
+  <path d="M5 25 L11 9 L16 18 L21 7 L27 25" stroke="#F5F1EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

@@ -1,0 +1,123 @@
+---
+interface Props {
+  headline: string;
+  subheadline?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  backgroundImage?: string;
+  overlay?: boolean;
+  fullHeight?: boolean;
+  badge?: string;
+}
+
+const {
+  headline,
+  subheadline,
+  ctaText,
+  ctaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
+  backgroundImage,
+  overlay = true,
+  fullHeight = true,
+  badge,
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    'relative flex items-end justify-center text-white overflow-hidden',
+    fullHeight ? 'min-h-screen' : 'min-h-[60vh]',
+  ]}
+>
+  <!-- Background — El Capitan photo, desaturated and tinted to match palette -->
+  {fullHeight ? (
+    <div class="absolute inset-0">
+      <!-- The actual photograph — grayscaled and dimmed -->
+      <div
+        class="absolute inset-0 bg-cover bg-center hero-photo"
+        style="background-image: url('/images/hero/yosemite-valley-bw.jpg')"
+      />
+      <!-- Color tint overlay — blends the B&W photo into the site's palette -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1a2a30]/70 via-[#2a3f3a]/50 to-[#3D5A3E]/60 mix-blend-multiply" />
+      <!-- Darken from bottom for text legibility -->
+      <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/95 via-granite-dark/40 to-granite-dark/20" />
+    </div>
+  ) : backgroundImage ? (
+    <div class="absolute inset-0">
+      <div
+        class="absolute inset-0 bg-cover bg-center hero-photo"
+        style={`background-image: url('${backgroundImage}')`}
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1a2a30]/70 via-[#2a3f3a]/50 to-[#3D5A3E]/60 mix-blend-multiply" />
+    </div>
+  ) : (
+    <!-- Atmospheric sky gradient — like looking up from the Valley floor at dusk -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1a2a30] via-[#2a3f3a] to-[#3D5A3E]/90" />
+    </div>
+  )}
+
+  {!fullHeight && overlay && (
+    <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/90 via-granite-dark/30 to-granite-dark/40" />
+  )}
+
+
+  <!-- Content — positioned lower, as if you're looking up from the Valley floor -->
+  <div class:list={[
+    'relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center',
+    fullHeight ? 'pb-36 sm:pb-32' : 'py-20 sm:py-24',
+  ]}>
+    {badge && (
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-golden-grass bg-granite-dark/40 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6 border border-golden-grass/30">
+        {badge}
+      </span>
+    )}
+    <h1 class="text-white mb-6 drop-shadow-lg">
+      {headline}
+    </h1>
+    {subheadline && (
+      <p class="text-xl sm:text-2xl text-valley-cream/90 font-light max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
+        {subheadline}
+      </p>
+    )}
+    {(ctaText || secondaryCtaText) && (
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {ctaText && ctaHref && (
+          <a
+            href={ctaHref}
+            class="inline-flex items-center px-8 py-4 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors shadow-lg"
+          >
+            {ctaText}
+          </a>
+        )}
+        {secondaryCtaText && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class="inline-flex items-center px-8 py-4 bg-transparent text-white border-2 border-white/40 font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-white/10 hover:border-white/60 transition-colors"
+          >
+            {secondaryCtaText}
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+
+
+  <!-- Scroll indicator -->
+  {fullHeight && (
+    <div class="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  )}
+</section>
+
+<style>
+  .hero-photo {
+    filter: grayscale(100%) contrast(1.1) brightness(0.7);
+  }
+</style>

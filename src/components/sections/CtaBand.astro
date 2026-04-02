@@ -1,0 +1,37 @@
+---
+interface Props {
+  headline: string;
+  subtext?: string;
+  ctaText: string;
+  ctaHref: string;
+  variant?: 'sequoia' | 'alpenglow' | 'granite';
+}
+
+const { headline, subtext, ctaText, ctaHref, variant = 'sequoia' } = Astro.props;
+
+const bgColors = {
+  sequoia: 'bg-sequoia',
+  alpenglow: 'bg-alpenglow',
+  granite: 'bg-granite-dark',
+};
+---
+
+<section class={`${bgColors[variant]} py-16 sm:py-20`}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="text-white mb-4">{headline}</h2>
+    {subtext && (
+      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">{subtext}</p>
+    )}
+    <a
+      href={ctaHref}
+      class:list={[
+        'inline-flex items-center px-8 py-4 font-body text-sm font-semibold uppercase tracking-[0.08em] rounded transition-colors',
+        variant === 'alpenglow'
+          ? 'bg-white text-alpenglow hover:bg-valley-cream'
+          : 'bg-alpenglow text-white hover:bg-alpenglow/90',
+      ]}
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>

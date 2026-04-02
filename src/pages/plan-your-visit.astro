@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import FaqAccordion from '../components/sections/FaqAccordion.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+
+const faqs = [
+  {
+    question: 'What time does the experience start and end?',
+    answer: 'We typically pick up guests in early morning and return in the late afternoon. Exact times vary by season and pickup location. You\'ll receive detailed timing information after booking.',
+  },
+  {
+    question: 'Where are the pickup locations?',
+    answer: 'We pick up guests along the Highway 140 corridor, with stops in Mariposa, Midpines, and El Portal. You\'ll select your preferred pickup point when booking.',
+  },
+  {
+    question: 'Is lunch included?',
+    answer: 'Lunch is not included in the experience price. We recommend bringing a packed lunch and snacks. We\'ll stop at a beautiful location in the park for your lunch break, and there are limited food options available within Yosemite as well.',
+  },
+  {
+    question: 'What should I wear?',
+    answer: 'Dress in layers — Yosemite\'s weather can change throughout the day. Comfortable walking shoes are essential. In winter, bring warm layers; in summer, sun protection is key. We\'ll send a detailed packing list after booking.',
+  },
+  {
+    question: 'How physically demanding is the experience?',
+    answer: 'This is not a hiking tour. While we do take short walks at various stops, the experience is designed to be accessible to most fitness levels. If you can walk a mile on relatively flat ground, you\'ll be comfortable.',
+  },
+  {
+    question: 'What happens if the weather is bad?',
+    answer: 'Yosemite is remarkable in every kind of weather. Rain, mist, and even snow can make the park even more magical. We operate in most weather conditions and adjust our itinerary accordingly. In cases of truly dangerous weather, we\'ll reschedule your experience.',
+  },
+  {
+    question: 'Can I bring children?',
+    answer: 'Yes! We welcome families. Children often have the most wonderful questions and observations. Our interpretation naturally adapts to engage guests of all ages. Children under a certain age may qualify for a reduced rate — check our booking page for details.',
+  },
+  {
+    question: 'What is your cancellation policy?',
+    answer: 'We understand plans change. Full details of our cancellation and refund policy are available on our booking page through FlyBook. Generally, cancellations made 48+ hours in advance receive a full refund.',
+  },
+  {
+    question: 'Is the park entrance fee included?',
+    answer: 'Yes, your park entrance fee is included in the $210 per person price.',
+  },
+  {
+    question: 'How many people will be on my experience?',
+    answer: 'Our vehicle accommodates a maximum of 15 guests. This small group size ensures a personal, intimate experience where everyone can engage, ask questions, and feel connected.',
+  },
+  {
+    question: 'Do you operate year-round?',
+    answer: 'We operate seasonally, with our primary season running from spring through fall. Each season offers a completely different experience — spring waterfalls, summer meadows, fall color, and winter serenity. Check our booking calendar for available dates.',
+  },
+  {
+    question: 'Can I book a private experience for my group?',
+    answer: 'Yes! Private experiences are available for groups. Contact us directly to discuss private bookings and custom itineraries.',
+  },
+  {
+    question: 'Is OutMore Adventures authorized to operate in Yosemite?',
+    answer: 'Yes. OutMore Adventures holds a Commercial Use Authorization (CUA) directly from the National Park Service, authorizing us to conduct guided interpretive experiences within Yosemite National Park. This means our operation meets NPS standards for safety, insurance, and visitor experience.',
+  },
+];
+---
+
+<BaseLayout
+  title="Plan Your Visit"
+  description="Everything you need to know before your OutMore Adventures experience in Yosemite. Pickup locations, what to bring, FAQ, and seasonal guides."
+>
+  <Hero
+    headline="Plan Your Visit"
+    subheadline="Everything you need to know to make the most of your day in Yosemite."
+    fullHeight={false}
+    backgroundImage="/images/gallery/merced-river.jpg"
+  />
+
+  <!-- Pickup Locations -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Getting There</span>
+        <h2>Pickup Locations</h2>
+        <p class="text-granite-mid text-lg mt-4 max-w-2xl mx-auto">
+          We pick you up along the Highway 140 corridor — the most scenic route into Yosemite.
+          Select your preferred pickup point when booking.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          { name: 'Mariposa', detail: 'First pickup — the gateway to Yosemite', time: 'Earliest departure' },
+          { name: 'Midpines', detail: 'Along Highway 140 between Mariposa and El Portal', time: 'Second stop' },
+          { name: 'El Portal', detail: 'Just outside the Arch Rock entrance to Yosemite', time: 'Final pickup before entering the park' },
+        ].map(location => (
+          <div class="bg-white rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-sequoia flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-granite-dark font-semibold">{location.name}</h4>
+              <p class="text-granite-mid text-sm">{location.detail}</p>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wide text-alpenglow bg-alpenglow/10 px-3 py-1 rounded-full">
+              {location.time}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 bg-merced/10 rounded-xl p-6 text-center">
+        <p class="text-merced text-sm">
+          <strong>Driving from further away?</strong> Mariposa has wonderful lodging options for the night before.
+          We're happy to recommend places to stay — just ask when you book.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Bring -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Be Prepared</span>
+        <h2>What to Bring</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          { icon: '👟', item: 'Comfortable walking shoes', note: 'Closed-toe, broken in' },
+          { icon: '🧥', item: 'Layers', note: 'Weather changes throughout the day' },
+          { icon: '🧴', item: 'Sun protection', note: 'Sunscreen, hat, sunglasses' },
+          { icon: '💧', item: 'Water bottle', note: 'Refillable — we\'ll have opportunities to fill up' },
+          { icon: '🥪', item: 'Packed lunch & snacks', note: 'We break for lunch at a beautiful spot' },
+          { icon: '📷', item: 'Camera', note: 'You\'ll want it — trust us' },
+          { icon: '🌧️', item: 'Rain jacket (seasonal)', note: 'Spring and fall especially' },
+          { icon: '🧣', item: 'Warm layers (winter)', note: 'Temperatures can drop significantly in the Valley' },
+        ].map(item => (
+          <div class="flex items-start gap-4 bg-valley-cream rounded-lg p-5">
+            <span class="text-2xl">{item.icon}</span>
+            <div>
+              <p class="font-semibold text-granite-dark">{item.item}</p>
+              <p class="text-granite-mid text-sm">{item.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasonal Guide -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Every Season Tells a Different Story</span>
+        <h2>Yosemite by Season</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-granite-dark mb-3">Spring</h3>
+          <p class="text-granite-mid text-sm leading-relaxed">
+            The waterfalls are at their most powerful, fed by melting snow. Wildflowers carpet the meadows.
+            The Valley comes alive with the sound of rushing water. This is Yosemite at its most dramatic.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-granite-dark mb-3">Summer</h3>
+          <p class="text-granite-mid text-sm leading-relaxed">
+            Long days and warm temperatures. The high country opens up. Wildlife is abundant and active.
+            Clear skies reveal every detail of the granite walls. The park is at its most accessible.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-granite-dark mb-3">Fall</h3>
+          <p class="text-granite-mid text-sm leading-relaxed">
+            The crowds thin and the Valley takes on a golden glow. Oak trees turn amber, the light
+            softens, and there's a quietness that lets you hear the park in a different way.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-granite-dark mb-3">Winter</h3>
+          <p class="text-granite-mid text-sm leading-relaxed">
+            Snow transforms the Valley into something otherworldly. Fewer visitors, profound stillness.
+            The granite walls contrast against white snow. This is Yosemite's most intimate season.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <FaqAccordion items={faqs} />
+    </div>
+  </section>
+
+  <CtaBand
+    headline="Ready to Book?"
+    subtext="Secure your seat on the next OutMore Adventures experience."
+    ctaText="Book Now — $210/Person"
+    ctaHref="/book/"
+    variant="sequoia"
+  />
+</BaseLayout>

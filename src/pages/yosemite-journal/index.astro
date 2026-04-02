@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import ArticleCard from '../../components/ui/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('journal');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = ['All', 'Geology', 'Ecology', 'History', 'Culture', 'Wildlife', 'Seasonal'];
+---
+
+<BaseLayout
+  title="Yosemite Journal"
+  description="Explore the geology, ecology, history, and culture of Yosemite National Park through expert-written articles and stories."
+>
+  <Hero
+    headline="The Yosemite Journal"
+    subheadline="Stories, science, and secrets from the heart of the Sierra."
+    fullHeight={false}
+    backgroundImage="/images/journal/yosemite-falls.jpg"
+  />
+
+  <!-- Articles -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Category Filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map((cat, i) => (
+          <button
+            class:list={[
+              'px-4 py-2 rounded-full text-sm font-semibold transition-colors',
+              i === 0
+                ? 'bg-sequoia text-white'
+                : 'bg-white text-granite-mid hover:text-granite-dark',
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Article Grid -->
+      {sortedPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map(post => (
+            <ArticleCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              category={post.data.category}
+              date={post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              slug={post.id}
+              image={post.data.image}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-granite-mid text-lg">Articles coming soon. Check back for stories from the Sierra.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="py-16 bg-alpenglow">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-white mb-4">Get Yosemite Stories in Your Inbox</h3>
+      <p class="text-white/80 mb-8">
+        Subscribe to the Yosemite Journal for articles on geology, ecology, history, and more — delivered straight to you.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          required
+          class="flex-1 px-4 py-3 rounded-lg text-granite-dark placeholder-granite-mid focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-white text-alpenglow font-body text-sm font-semibold uppercase tracking-[0.08em] rounded-lg hover:bg-valley-cream transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

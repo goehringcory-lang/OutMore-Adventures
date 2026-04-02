@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import CtaBand from '../../components/sections/CtaBand.astro';
+import TestimonialCard from '../../components/ui/TestimonialCard.astro';
+---
+
+<BaseLayout
+  title="The Full-Day Yosemite Experience"
+  description="A full-day interpretive journey through Yosemite with a certified guide. Small groups, deep knowledge, unforgettable connections. Pickup from Mariposa. $210/person."
+>
+  <Hero
+    headline="The Full-Day Yosemite Experience"
+    subheadline="A journey into the heart of the park, guided by two decades of knowledge and a deep love for this place."
+    ctaText="Book Your Seat — $210"
+    ctaHref="/book/"
+    fullHeight={false}
+    backgroundImage="/images/gallery/deer-half-dome.jpg"
+  />
+
+  <!-- Overview -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <h2 class="mb-6">More Than a Day in the Park</h2>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            This is a full-day immersion into Yosemite National Park — not a checklist of overlooks, but a
+            journey of understanding. From the geology that carved the Valley to the ecology that sustains it,
+            from the people who have called it home for millennia to the forces that continue to shape it today,
+            you'll leave with a connection to this place that goes far deeper than photographs.
+          </p>
+          <p class="text-granite-mid text-lg leading-relaxed">
+            As one of a limited number of operators authorized by the National Park Service to guide in Yosemite,
+            we offer something most visitors simply can't access on their own. Your guide has spent over 20 years
+            in Yosemite — interpreting, learning, and falling in love with this landscape all over again.
+            This experience is the distillation of everything that knowledge and passion can offer.
+          </p>
+        </div>
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+          <img src="/images/gallery/merced-river.jpg" alt="Clear waters of the Merced River flowing through Yosemite Valley" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Journey / Itinerary -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Your Day</span>
+        <h2>The Journey</h2>
+        <p class="text-granite-mid text-lg mt-4 max-w-2xl mx-auto">
+          Every day in Yosemite is different — shaped by the season, the weather, the light, and the group.
+          Here's the rhythm of a typical experience.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Morning -->
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-sequoia flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <div class="w-px flex-1 bg-granite-light mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-granite-dark mb-1">Early Morning</h3>
+            <p class="text-alpenglow text-sm font-semibold mb-3">Pickup &bull; Highway 140 Corridor</p>
+            <p class="text-granite-mid leading-relaxed">
+              We meet at designated pickup points along the Highway 140 corridor, starting in Mariposa.
+              As we travel toward the park, the journey begins — your guide sets the stage for the day ahead,
+              weaving the story of the landscape unfolding outside your window. The foothills themselves have
+              stories to tell, and we don't wait until we reach the Valley to start listening.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mid-Morning -->
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-sequoia flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+              </svg>
+            </div>
+            <div class="w-px flex-1 bg-granite-light mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-granite-dark mb-1">Mid-Morning</h3>
+            <p class="text-alpenglow text-sm font-semibold mb-3">Arrival &bull; First Encounters</p>
+            <p class="text-granite-mid leading-relaxed">
+              Entering Yosemite is always a moment. We take it in — not rushing to the next stop, but letting
+              the park reveal itself. Your guide interprets the geology that carved this valley, the forces of
+              ice and water and time that created what you're seeing. These aren't facts to memorize; they're
+              stories that make the landscape come alive.
+            </p>
+          </div>
+        </div>
+
+        <!-- Midday -->
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-sequoia flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <div class="w-px flex-1 bg-granite-light mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-granite-dark mb-1">Midday</h3>
+            <p class="text-alpenglow text-sm font-semibold mb-3">Deeper Exploration &bull; Lunch</p>
+            <p class="text-granite-mid leading-relaxed">
+              We slow down. This is when the park opens up — short walks, closer looks, and the kind of
+              moments that don't happen when you're racing from viewpoint to viewpoint. We break for lunch
+              in one of Yosemite's most beautiful settings. The ecology around us becomes the conversation —
+              the trees, the wildlife, the delicate systems that sustain this place.
+            </p>
+          </div>
+        </div>
+
+        <!-- Afternoon -->
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-sequoia flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div class="w-px flex-1 bg-granite-light mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-granite-dark mb-1">Afternoon</h3>
+            <p class="text-alpenglow text-sm font-semibold mb-3">History &bull; Culture &bull; Reflection</p>
+            <p class="text-granite-mid leading-relaxed">
+              The afternoon brings us into the human story of Yosemite — the Ahwahneechee people who have been
+              connected to this valley for thousands of years, the complex history of the park's creation, and
+              the ongoing stewardship that keeps this place alive. We close the day with reflection, making space
+              for you to absorb everything you've experienced.
+            </p>
+          </div>
+        </div>
+
+        <!-- Return -->
+        <div class="flex gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-alpenglow flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-granite-dark mb-1">Late Afternoon</h3>
+            <p class="text-alpenglow text-sm font-semibold mb-3">The Journey Home</p>
+            <p class="text-granite-mid leading-relaxed">
+              As we make our way back along Highway 140, the day settles in. The conversations continue,
+              questions flow freely, and many guests tell us this is when it all clicks — the pieces of the day
+              weave together into something whole. You'll return with more than memories. You'll return with understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes This Different -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2>Why OutMore Is Different</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <h3 class="text-granite-dark mb-4">NPS-Authorized</h3>
+          <p class="text-granite-mid leading-relaxed">
+            We hold a Commercial Use Authorization directly from the National Park Service. Your experience
+            is officially permitted, fully insured, and led by an operator the park trusts.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <h3 class="text-granite-dark mb-4">Interpretation, Not Narration</h3>
+          <p class="text-granite-mid leading-relaxed">
+            We don't read from a script or rattle off facts. We interpret — connecting you to the landscape
+            through stories, questions, and moments of discovery that make the park personal.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <h3 class="text-granite-dark mb-4">15 Guests, Not 50</h3>
+          <p class="text-granite-mid leading-relaxed">
+            Our 15-passenger van means you're not on a bus. You're part of a small group where every question
+            gets answered, every curiosity gets explored, and every person feels seen.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <h3 class="text-granite-dark mb-4">20 Years, Not 20 Pages</h3>
+          <p class="text-granite-mid leading-relaxed">
+            Your guide hasn't just studied Yosemite — they've lived it. Over two decades of seasons, storms,
+            wildlife encounters, and quiet moments in the Valley. That depth can't be learned from a guidebook.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Details -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2>The Details</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div class="bg-valley-cream rounded-xl p-8">
+          <h4 class="text-granite-dark mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Duration
+          </h4>
+          <p class="text-granite-mid">Full day — approximately 8-10 hours including travel from Mariposa</p>
+        </div>
+        <div class="bg-valley-cream rounded-xl p-8">
+          <h4 class="text-granite-dark mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            Price
+          </h4>
+          <p class="text-granite-mid">$210 per person</p>
+          <p class="text-granite-mid text-sm mt-2">Non-U.S. residents: additional $80 per person</p>
+        </div>
+        <div class="bg-valley-cream rounded-xl p-8">
+          <h4 class="text-granite-dark mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Pickup
+          </h4>
+          <p class="text-granite-mid">Highway 140 corridor — Mariposa, Midpines, El Portal</p>
+        </div>
+        <div class="bg-valley-cream rounded-xl p-8">
+          <h4 class="text-granite-dark mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Group Size
+          </h4>
+          <p class="text-granite-mid">Maximum 15 guests per experience</p>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-valley-cream rounded-xl p-8">
+        <h4 class="text-granite-dark mb-4">What's Included</h4>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            'Round-trip transportation from your pickup point',
+            'Full-day expert interpretive guide',
+            'Park entrance fee',
+            'Small group experience (max 15)',
+            'All interpretation and educational programming',
+            'NPS-authorized access — we\'re permitted to guide where others aren\'t',
+            'A deeper understanding of Yosemite you\'ll carry forever',
+          ].map(item => (
+            <li class="flex items-start gap-2 text-granite-mid">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2>From Our Guests</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <TestimonialCard
+          quote="I've visited national parks all over the country, but I've never experienced anything like this. The knowledge and passion were extraordinary."
+          author="Sample Review"
+          location="Guest reviews will appear here"
+          rating={5}
+        />
+        <TestimonialCard
+          quote="Worth every penny. We learned more in one day than in all our previous visits combined. This is how every park should be experienced."
+          author="Sample Review"
+          location="Guest reviews will appear here"
+          rating={5}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <CtaBand
+    headline="Ready to Experience Yosemite?"
+    subtext="Seats are limited to 15 per departure. Book your spot on the full-day interpretive experience. $210 per person."
+    ctaText="Book Now"
+    ctaHref="/book/"
+    variant="sequoia"
+  />
+</BaseLayout>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Meet the certified interpretive guide behind OutMore Adventures. Two decades of Yosemite knowledge, one transformative experience."
+>
+  <Hero
+    headline="About OutMore Adventures"
+    subheadline="Born from 20 years of falling in love with the same place, over and over again."
+    fullHeight={false}
+    backgroundImage="/images/heroes/bridalveil-fall.jpg"
+  />
+
+  <!-- Founder Story -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <!-- Photo Placeholder -->
+        <div class="w-full md:w-80 aspect-[3/4] rounded-2xl bg-granite-light flex items-center justify-center shrink-0">
+          <div class="text-center text-granite-mid p-8">
+            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <p class="text-sm">Founder photo coming soon</p>
+          </div>
+        </div>
+
+        <!-- Story -->
+        <div class="prose-lg">
+          <h2 class="mb-6">The Story Behind OutMore</h2>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            Over twenty years ago, I came to Yosemite for what I thought would be a season. Two decades later,
+            I'm still here — and the park still surprises me every single day.
+          </p>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            In that time, I've had the privilege of interpreting Yosemite for thousands of visitors — sharing
+            the geology that tells a story three billion years in the making, the ecology that sustains one of
+            the most remarkable ecosystems on Earth, and the human history that stretches back thousands of years
+            before this land became a national park.
+          </p>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            I've watched the seasons cycle through the Valley more times than I can count. I've seen waterfalls
+            that roar like thunder in spring and granite faces that glow at sunset in ways that stop me in my
+            tracks — even now, even after all these years. I've tracked wildlife, studied the forest, learned
+            from Indigenous knowledge keepers, and walked every trail in conditions that range from wildflower
+            carpets to waist-deep snow.
+          </p>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            OutMore Adventures was born from a simple realization: most people who visit Yosemite only scratch
+            the surface. They see the big views, take the photos, and leave. But Yosemite is so much deeper than
+            that. The stories written in the granite, the relationships between species, the cultural significance
+            that predates the park by millennia — these are the things that transform a visit into an experience.
+          </p>
+          <p class="text-granite-dark text-lg leading-relaxed font-semibold">
+            I started OutMore because I want you to see Yosemite the way I do — not as a tourist, but as someone
+            who truly understands this place. That's what twenty years of living here can offer, and I'm ready to
+            share it with you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2>Our Philosophy</h2>
+        <p class="text-granite-mid text-lg mt-4 max-w-2xl mx-auto">
+          We believe that interpretation transforms the way people connect with the natural world.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Connection Over Consumption</h3>
+          <p class="text-granite-mid leading-relaxed">
+            We don't race through a checklist. We slow down, look closer, and help you build a real
+            relationship with this landscape. Understanding breeds care.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Depth Over Distance</h3>
+          <p class="text-granite-mid leading-relaxed">
+            We'd rather you understand one meadow deeply than photograph ten overlooks quickly. Real knowledge
+            changes how you see — not just Yosemite, but the natural world everywhere.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Stewardship Through Understanding</h3>
+          <p class="text-granite-mid leading-relaxed">
+            When people understand a place, they protect it. Every experience we lead is an investment in
+            Yosemite's future — creating advocates for the park through education and connection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="py-20 sm:py-24 bg-granite-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-white mb-12">Credentials & Experience</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <p class="text-4xl font-heading font-bold text-golden-grass mb-2">20+</p>
+          <p class="text-granite-light text-sm uppercase tracking-wide">Years in Yosemite</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-golden-grass mb-2">CIG</p>
+          <p class="text-granite-light text-sm uppercase tracking-wide">Certified Interpretive Guide</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-golden-grass mb-2">CUA</p>
+          <p class="text-granite-light text-sm uppercase tracking-wide">NPS Commercial Use Authorization</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-golden-grass mb-2">NAI</p>
+          <p class="text-granite-light text-sm uppercase tracking-wide">Professional Member</p>
+        </div>
+      </div>
+      <p class="text-granite-light text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+        OutMore Adventures is one of a limited number of operators holding a Commercial Use Authorization
+        directly from the National Park Service to conduct guided experiences in Yosemite.
+        This authorization means your experience meets the highest standards of safety, insurance, and stewardship.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    headline="Experience Yosemite Through Our Eyes"
+    subtext="Join us for a day that will transform how you see the park."
+    ctaText="Learn About the Experience"
+    ctaHref="/experience/"
+    variant="sequoia"
+  />
+</BaseLayout>

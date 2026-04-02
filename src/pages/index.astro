@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import TestimonialCard from '../components/ui/TestimonialCard.astro';
+import ArticleCard from '../components/ui/ArticleCard.astro';
+---
+
+<BaseLayout title="Home">
+  <!-- Hero — Entering the Valley for the first time -->
+  <Hero
+    headline="See Yosemite the Way It Deserves to Be Seen"
+    subheadline="An NPS-authorized, full-day immersive experience. Expert guide, small group, limited seats."
+    ctaText="Explore the Experience"
+    ctaHref="/experience/"
+    secondaryCtaText="Book Your Seat"
+    secondaryCtaHref="/book/"
+    badge="NPS-Authorized Operator"
+  />
+
+  <!-- Value Proposition -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="mb-6">Experience Yosemite the Way It Deserves</h2>
+        <p class="text-granite-mid text-lg leading-relaxed">
+          Most visitors see Yosemite in a few hours — a quick stop at Tunnel View, a photo of Half Dome,
+          and a drive through the Valley. We believe this place deserves more than that. And so do you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- NPS-Authorized -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="mb-3">NPS-Authorized Operator</h3>
+          <p class="text-granite-mid leading-relaxed">
+            OutMore Adventures holds a Commercial Use Authorization directly from the National Park Service
+            — one of a limited number of operators permitted to guide in Yosemite.
+          </p>
+        </div>
+
+        <!-- Small Groups -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Small Groups, Big Moments</h3>
+          <p class="text-granite-mid leading-relaxed">
+            With a maximum of 15 guests, every experience feels personal. Our 15-passenger van means
+            no bus crowds — just you, your guide, and the park.
+          </p>
+        </div>
+
+        <!-- Interpretation -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Interpretation, Not Narration</h3>
+          <p class="text-granite-mid leading-relaxed">
+            We don't recite facts from a script. We interpret the landscape — weaving geology, ecology,
+            history, and culture into a living story that transforms how you see this place.
+          </p>
+        </div>
+
+        <!-- Everything Included -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-sequoia/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sequoia" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="mb-3">Everything Included</h3>
+          <p class="text-granite-mid leading-relaxed">
+            Transportation from Mariposa, park entrance fee, and a certified interpretive guide
+            with 20+ years of Yosemite experience — all in one seamless day.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-granite-mid text-sm mt-12 italic">
+        Operating under Commercial Use Authorization from the National Park Service, Yosemite National Park.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Preview -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Experience Image -->
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden order-2 lg:order-1">
+          <img src="/images/experience/yosemite-valley.jpg" alt="Yosemite Valley with waterfalls reflecting in the Merced River" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+
+        <!-- Content -->
+        <div class="order-1 lg:order-2">
+          <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">The Full-Day Experience</span>
+          <h2 class="mb-6">A Day You'll Carry With You</h2>
+          <p class="text-granite-mid text-lg leading-relaxed mb-6">
+            From the moment we meet in Mariposa to the journey home through the golden foothills,
+            every moment of this day is designed to deepen your connection with Yosemite.
+          </p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-granite-dark">Full-day immersive journey through Yosemite National Park</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-granite-dark">Convenient pickup along the Highway 140 corridor from Mariposa</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-granite-dark">Expert interpretation of geology, ecology, history, and culture</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-granite-dark">Small group — maximum 15 guests for a personal experience</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sequoia mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-granite-dark">NPS-authorized — one of a select few operators permitted in Yosemite</span>
+            </li>
+          </ul>
+          <div class="flex flex-col sm:flex-row items-start gap-4">
+            <a href="/experience/" class="inline-flex items-center px-6 py-3 bg-sequoia text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-sequoia/90 transition-colors">
+              See Full Details
+            </a>
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-heading font-bold text-granite-dark">$210</span>
+                <span class="text-granite-mid">per person</span>
+              </div>
+              <span class="text-alpenglow text-sm font-semibold">Limited to 15 seats per departure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Credibility Bar -->
+  <section class="py-20 sm:py-24 bg-granite-dark relative">
+    <!-- Subtle star-like dots for night sky feel -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #F5F1EB 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <!-- Photo Placeholder -->
+        <div class="w-40 h-40 rounded-full bg-granite-mid/20 border-2 border-golden-grass/30 flex items-center justify-center shrink-0">
+          <svg class="w-16 h-16 text-granite-mid/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div>
+          <blockquote class="text-valley-cream text-xl sm:text-2xl font-heading italic leading-relaxed mb-6">
+            &ldquo;After twenty years, Yosemite still stops me in my tracks. Every season reveals something new,
+            every visit deepens what I thought I already understood. I started OutMore Adventures because I believe
+            everyone deserves to experience this place the way I do — not as a tourist, but as someone who truly sees it.&rdquo;
+          </blockquote>
+          <div>
+            <p class="text-golden-grass font-semibold">Your Guide</p>
+            <p class="text-granite-mid text-sm">Certified Interpretive Guide &bull; NPS-Authorized Operator &bull; 20+ years in Yosemite</p>
+          </div>
+          <a href="/about/" class="inline-flex items-center gap-2 text-valley-cream/80 hover:text-white text-sm font-semibold uppercase tracking-[0.06em] mt-4 transition-colors">
+            Read the Full Story
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Highlight -->
+  <section class="py-20 sm:py-24 bg-valley-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">What Our Guests Say</span>
+      <div class="max-w-3xl mx-auto">
+        <TestimonialCard
+          quote="We've visited Yosemite three times before, but this was the first time we truly saw it. The depth of knowledge, the passion, the way every story connected us to something bigger — it was transformative. This isn't a tour. It's a gift."
+          author="Sample Guest Review"
+          location="Your future guests' words will appear here"
+          rating={5}
+        />
+      </div>
+      <a href="/reviews/" class="inline-flex items-center gap-2 text-sequoia hover:text-sequoia/80 text-sm font-semibold uppercase tracking-[0.06em] mt-8 transition-colors">
+        Read More Reviews
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Journal Preview -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">From the Yosemite Journal</span>
+        <h2>Stories, Science, and Secrets from the Sierra</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ArticleCard
+          title="The Story Written in Yosemite's Granite"
+          excerpt="Three billion years of Earth's history are exposed in the walls of Yosemite Valley. Here's how to read the rock."
+          category="Geology"
+          slug="story-written-in-granite"
+          image="/images/gallery/half-dome.jpg"
+        />
+        <ArticleCard
+          title="Spring in Yosemite: When the Waterfalls Roar"
+          excerpt="There's a narrow window each year when Yosemite's waterfalls reach their thundering peak. Here's what makes it happen."
+          category="Seasonal"
+          slug="spring-waterfalls"
+          image="/images/journal/yosemite-falls.jpg"
+        />
+        <ArticleCard
+          title="The People Who Named the Valley"
+          excerpt="Long before it became a national park, Yosemite Valley was home to the Ahwahneechee people for thousands of years."
+          category="History"
+          slug="people-who-named-the-valley"
+          image="/images/gallery/valley-view.jpg"
+        />
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/yosemite-journal/" class="inline-flex items-center gap-2 text-sequoia hover:text-sequoia/80 text-sm font-semibold uppercase tracking-[0.06em] transition-colors">
+          Explore All Articles
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social / Instagram Band -->
+  <section class="py-16 bg-valley-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-alpenglow mb-4">Follow Along</span>
+      <h3 class="mb-8">@OutMoreAdventures</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        {[
+          { src: '/images/experience/yosemite-valley.jpg', alt: 'Yosemite Valley reflection' },
+          { src: '/images/gallery/deer-half-dome.jpg', alt: 'Deer grazing below Half Dome' },
+          { src: '/images/gallery/valley-view.jpg', alt: 'Tunnel View panorama' },
+          { src: '/images/gallery/half-dome.jpg', alt: 'Half Dome cables' },
+          { src: '/images/gallery/merced-river.jpg', alt: 'Merced River' },
+          { src: '/images/journal/yosemite-falls.jpg', alt: 'El Capitan from meadow' },
+        ].map((img) => (
+          <div class="aspect-square rounded-lg overflow-hidden">
+            <img src={img.src} alt={img.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <p class="text-granite-mid text-sm mt-4">Follow us for daily Yosemite moments</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CtaBand
+    headline="Limited Seats. Unforgettable Days."
+    subtext="OutMore Adventures is one of a select few NPS-authorized operators in Yosemite. Secure your seat before they're gone."
+    ctaText="Book Your Experience"
+    ctaHref="/book/"
+    variant="sequoia"
+  />
+</BaseLayout>

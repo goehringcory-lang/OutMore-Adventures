@@ -1,0 +1,218 @@
+---
+/**
+ * Yosemite Easter Eggs
+ *
+ * 1. FIREFALL: Click the right cliff wall in the hero section.
+ *    Triggers the famous February "Firefall" — Horsetail Fall glowing
+ *    orange as sunset light hits El Capitan's eastern face.
+ *
+ * 2. BEAR WALK: Enter the Konami code (↑↑↓↓←→←→BA) anywhere on the site.
+ *    A black bear silhouette ambles across the bottom of the screen,
+ *    just like encountering one in the Valley.
+ */
+---
+
+<!-- Firefall overlay (hidden until triggered) -->
+<div id="firefall-overlay" class="fixed inset-0 z-[100] pointer-events-none opacity-0 transition-opacity duration-1000" aria-hidden="true">
+  <div class="firefall-container">
+    <!-- The glowing cascade -->
+    <div class="firefall-stream"></div>
+    <div class="firefall-stream firefall-stream-2"></div>
+    <div class="firefall-glow"></div>
+  </div>
+</div>
+
+<!-- Bear (hidden until Konami code) -->
+<div id="konami-bear" class="fixed bottom-12 z-[100] pointer-events-none" style="left: -200px;" aria-hidden="true">
+  <svg width="160" height="100" viewBox="0 0 160 100" fill="#2C3539" xmlns="http://www.w3.org/2000/svg">
+    <!-- Black bear silhouette walking -->
+    <ellipse cx="80" cy="55" rx="45" ry="28" /> <!-- body -->
+    <ellipse cx="125" cy="45" rx="12" ry="10" /> <!-- rump -->
+    <circle cx="30" cy="40" r="16" /> <!-- head -->
+    <circle cx="20" cy="30" r="7" /> <!-- ear left -->
+    <circle cx="38" cy="28" r="7" /> <!-- ear right -->
+    <ellipse cx="22" cy="42" rx="6" ry="4" fill="#3D5A3E" /> <!-- snout -->
+    <circle cx="24" cy="38" r="1.5" fill="#F5F1EB" /> <!-- eye -->
+    <!-- legs (walking pose) -->
+    <rect x="50" y="72" width="10" height="24" rx="4" /> <!-- front left (forward) -->
+    <rect x="68" y="75" width="10" height="20" rx="4" /> <!-- front right (back) -->
+    <rect x="100" y="75" width="10" height="20" rx="4" /> <!-- back left (back) -->
+    <rect x="115" y="72" width="10" height="24" rx="4" /> <!-- back right (forward) -->
+    <!-- tail -->
+    <ellipse cx="135" cy="42" rx="6" ry="5" />
+  </svg>
+</div>
+
+<style>
+  .firefall-container {
+    position: absolute;
+    top: 10%;
+    right: 12%;
+    width: 8px;
+    height: 55%;
+    overflow: visible;
+  }
+
+  .firefall-stream {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(
+      to bottom,
+      #ff6b2b,
+      #C4663A,
+      #B8A361,
+      #ff8c42,
+      #C4663A
+    );
+    border-radius: 2px;
+    filter: blur(1px);
+    animation: firefall-cascade 3s ease-in forwards;
+    box-shadow:
+      0 0 8px 2px rgba(196, 102, 58, 0.6),
+      0 0 20px 4px rgba(196, 102, 58, 0.3),
+      0 0 40px 8px rgba(184, 163, 97, 0.15);
+  }
+
+  .firefall-stream-2 {
+    width: 6px;
+    filter: blur(2px);
+    opacity: 0.5;
+    animation-delay: 0.2s;
+  }
+
+  .firefall-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 0;
+    background: radial-gradient(ellipse at center, rgba(255, 140, 66, 0.3), transparent);
+    border-radius: 50%;
+    animation: firefall-glow 3s ease-in forwards;
+  }
+
+  @keyframes firefall-cascade {
+    0% { height: 0; opacity: 0; }
+    10% { opacity: 1; }
+    60% { height: 100%; opacity: 1; }
+    85% { height: 100%; opacity: 0.7; }
+    100% { height: 100%; opacity: 0; }
+  }
+
+  @keyframes firefall-glow {
+    0% { height: 0; opacity: 0; }
+    10% { opacity: 1; }
+    60% { height: 100%; opacity: 0.8; }
+    85% { height: 100%; opacity: 0.4; }
+    100% { height: 100%; opacity: 0; }
+  }
+
+  @keyframes bear-walk {
+    0% { left: -200px; }
+    100% { left: calc(100vw + 200px); }
+  }
+
+  @keyframes bear-bob {
+    0%, 100% { transform: translateY(0) scaleX(-1); }
+    50% { transform: translateY(-4px) scaleX(-1); }
+  }
+</style>
+
+<script>
+  // === FIREFALL EASTER EGG ===
+  // Click on the right side of the hero section to trigger
+  // Uses capture phase and checks all sections for the full-height hero
+  document.addEventListener('click', (e) => {
+    const sections = document.querySelectorAll('section');
+    let hero = null;
+    for (const s of sections) {
+      if (s.classList.contains('min-h-screen')) { hero = s; break; }
+    }
+    if (!hero) return;
+
+    const rect = hero.getBoundingClientRect();
+    const clickX = (e.clientX - rect.left) / rect.width;
+    const clickY = (e.clientY - rect.top) / rect.height;
+
+    // Right cliff wall area (roughly right 25%, upper 70%)
+    if (clickX > 0.75 && clickY < 0.7 && clickY > 0.05) {
+      triggerFirefall();
+    }
+  }, true);
+
+  function triggerFirefall() {
+    const overlay = document.getElementById('firefall-overlay');
+    if (!overlay || overlay.dataset.active === 'true') return;
+
+    overlay.dataset.active = 'true';
+    overlay.style.opacity = '1';
+
+    // Reset animations
+    const streams = overlay.querySelectorAll('.firefall-stream, .firefall-glow');
+    streams.forEach(el => {
+      el.style.animation = 'none';
+      el.offsetHeight; // force reflow
+      el.style.animation = '';
+    });
+
+    setTimeout(() => {
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.dataset.active = 'false';
+      }, 1000);
+    }, 3500);
+  }
+
+  // === KONAMI CODE BEAR EASTER EGG ===
+  const konamiSequence = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'KeyB', 'KeyA'
+  ];
+  let konamiIndex = 0;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === konamiSequence[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiSequence.length) {
+        konamiIndex = 0;
+        triggerBear();
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+
+  function triggerBear() {
+    const bear = document.getElementById('konami-bear');
+    if (!bear || bear.dataset.active === 'true') return;
+
+    bear.dataset.active = 'true';
+    bear.style.left = '-200px';
+
+    // Bob animation on the SVG
+    const svg = bear.querySelector('svg');
+    if (svg) {
+      svg.style.animation = 'bear-bob 0.4s ease-in-out infinite';
+      svg.style.transformOrigin = 'center bottom';
+    }
+
+    // Walk across screen
+    bear.style.transition = 'left 8s linear';
+    requestAnimationFrame(() => {
+      bear.style.left = `calc(100vw + 200px)`;
+    });
+
+    setTimeout(() => {
+      bear.style.transition = 'none';
+      bear.style.left = '-200px';
+      bear.dataset.active = 'false';
+      if (svg) svg.style.animation = '';
+    }, 8500);
+  }
+</script>

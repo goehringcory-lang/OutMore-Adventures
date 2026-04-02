@@ -1,0 +1,27 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { variant = 'light', size = 'md', class: className = '' } = Astro.props;
+
+const heights = {
+  sm: 'h-16',
+  md: 'h-24',
+  lg: 'h-36',
+};
+---
+
+<a href="/" class={`inline-flex items-center group ${className}`} aria-label="OutMore Adventures - Home">
+  <img
+    src="/images/logo/outmore-logo.png"
+    alt="OutMore Adventures"
+    class:list={[
+      heights[size],
+      'w-auto',
+      variant === 'light' ? 'brightness-0 invert' : '',
+    ]}
+  />
+</a>

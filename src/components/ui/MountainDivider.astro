@@ -1,0 +1,78 @@
+---
+/**
+ * Mountain Silhouette Section Divider
+ * Creates the feeling of looking up from the Valley floor
+ * with cliff walls and peaks framing the content.
+ */
+interface Props {
+  /** Color of the mountain silhouette (matches the section BELOW) */
+  fillColor?: string;
+  /** Which mountain profile to use */
+  variant?: 'valley-entry' | 'cliff-walls' | 'ridgeline' | 'subtle';
+  /** Flip vertically (mountains point down instead of up) */
+  flip?: boolean;
+  class?: string;
+}
+
+const { fillColor = '#F5F1EB', variant = 'ridgeline', flip = false, class: className = '' } = Astro.props;
+---
+
+{variant === 'valley-entry' && (
+  <!-- Dramatic Valley entrance: tall walls on both sides, narrow opening -->
+  <div class:list={['relative w-full overflow-hidden -mb-px', flip && 'rotate-180', className]} style="margin-top: -1px;">
+    <svg
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+      class="w-full h-16 sm:h-20 md:h-28"
+      fill={fillColor}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0,0 L0,40 Q60,90 180,60 Q280,35 360,50 Q420,62 480,45 Q520,35 560,80 L600,120 L840,120 Q880,70 920,50 Q980,25 1060,55 Q1140,80 1200,50 Q1300,10 1380,35 L1440,40 L1440,0 Z" />
+    </svg>
+  </div>
+)}
+
+{variant === 'cliff-walls' && (
+  <!-- Cliff walls rising on both sides like El Capitan and Cathedral Rocks -->
+  <div class:list={['relative w-full overflow-hidden -mb-px', flip && 'rotate-180', className]} style="margin-top: -1px;">
+    <svg
+      viewBox="0 0 1440 140"
+      preserveAspectRatio="none"
+      class="w-full h-20 sm:h-24 md:h-32"
+      fill={fillColor}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0,0 L0,100 Q40,70 100,80 Q160,90 200,60 Q260,20 340,40 Q380,50 420,90 Q460,120 520,110 L560,140 L880,140 Q920,100 960,85 Q1020,60 1080,70 Q1140,80 1180,40 Q1220,10 1280,30 Q1340,50 1400,80 L1440,100 L1440,0 Z" />
+    </svg>
+  </div>
+)}
+
+{variant === 'ridgeline' && (
+  <!-- Gentle ridgeline silhouette like the Sierra crest at sunset -->
+  <div class:list={['relative w-full overflow-hidden -mb-px', flip && 'rotate-180', className]} style="margin-top: -1px;">
+    <svg
+      viewBox="0 0 1440 80"
+      preserveAspectRatio="none"
+      class="w-full h-10 sm:h-14 md:h-20"
+      fill={fillColor}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0,0 L0,30 Q120,60 240,45 Q360,30 480,50 Q540,58 600,40 Q720,10 840,35 Q960,60 1080,40 Q1200,20 1320,45 Q1380,55 1440,35 L1440,0 Z" />
+    </svg>
+  </div>
+)}
+
+{variant === 'subtle' && (
+  <!-- Very subtle wave, like the Merced River flowing -->
+  <div class:list={['relative w-full overflow-hidden -mb-px', flip && 'rotate-180', className]} style="margin-top: -1px;">
+    <svg
+      viewBox="0 0 1440 50"
+      preserveAspectRatio="none"
+      class="w-full h-8 sm:h-10 md:h-12"
+      fill={fillColor}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0,0 L0,20 Q360,45 720,25 Q1080,5 1440,30 L1440,0 Z" />
+    </svg>
+  </div>
+)}

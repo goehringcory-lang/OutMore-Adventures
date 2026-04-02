@@ -1,0 +1,114 @@
+---
+import Logo from '../ui/Logo.astro';
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'The Experience', href: '/experience/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Yosemite Journal', href: '/yosemite-journal/' },
+  { label: 'Plan Your Visit', href: '/plan-your-visit/' },
+  { label: 'Reviews', href: '/reviews/' },
+  { label: 'Gallery', href: '/gallery/' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-granite-dark/95 backdrop-blur-sm" id="site-header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-28">
+      <!-- Logo -->
+      <Logo variant="light" size="md" />
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'font-body text-sm font-semibold uppercase tracking-[0.08em] transition-colors',
+              currentPath === link.href || currentPath.startsWith(link.href)
+                ? 'text-golden-grass'
+                : 'text-granite-light hover:text-white',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/book/"
+          class="inline-flex items-center px-6 py-2.5 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors"
+        >
+          Book Now
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="lg:hidden text-white p-2"
+        id="mobile-menu-btn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="lg:hidden hidden bg-granite-dark border-t border-granite-mid/30" id="mobile-menu">
+    <nav class="px-4 py-6 space-y-4" aria-label="Mobile navigation">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'block font-body text-base font-semibold uppercase tracking-[0.06em] py-2 transition-colors',
+            currentPath === link.href || currentPath.startsWith(link.href)
+              ? 'text-golden-grass'
+              : 'text-granite-light hover:text-white',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/book/"
+        class="block text-center mt-4 px-6 py-3 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors"
+      >
+        Book Now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-28"></div>
+
+<!-- Mobile sticky Book Now bar -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-granite-dark/95 backdrop-blur-sm border-t border-granite-mid/30 p-3">
+  <a
+    href="/book/"
+    class="block text-center px-6 py-3 bg-alpenglow text-white font-body text-sm font-semibold uppercase tracking-[0.08em] rounded hover:bg-alpenglow/90 transition-colors"
+  >
+    Book Your Experience — $210/person
+  </a>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (icon) {
+      icon.setAttribute('d', isOpen
+        ? 'M4 6h16M4 12h16M4 18h16'
+        : 'M6 18L18 6M6 6l12 12'
+      );
+    }
+  });
+</script>
